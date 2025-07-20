@@ -1,6 +1,6 @@
 # Nest
 
-Emulator NES in Rust
+NES emulator in Rust.
 
 ## Useful links
 
