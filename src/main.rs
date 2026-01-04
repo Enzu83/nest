@@ -1,24 +1,27 @@
+mod cpu;
+mod emulator;
+mod ppu;
+mod rom;
+mod utils;
+
 use std::env::args;
-use std::fs::File;
-use std::io::Read;
 
-type Error = Box<dyn std::error::Error>;
+use anyhow::{Result, bail};
 
-fn main() -> Result<(), Error> {
-    let path = match args().skip(1).next() {
+use crate::{emulator::Emulator, rom::Rom};
+
+fn main() -> Result<()> {
+    // retrieve the rom path from the args
+    let rom_path = match args().nth(1) {
         Some(arg) => arg,
-        None => return Err("Please provide a path to the ROM.".into()),
+        None => bail!("Please provide a path to the ROM."),
     };
 
-    // open the ROM and store the content in a byte vector
-    let mut rom = Vec::with_capacity(40976); // standard NES ROM size
-    File::open(path)?.read_to_end(&mut rom)?;
+    let rom = Rom::load(&rom_path)?;
 
-    // get the first three elements of the ROM
-    let header = std::str::from_utf8(&rom[..3])?;
-
-    // the header should be "NES"
-    println!("{}", header);
+    let mut emulator = Emulator::new(rom)?;
+    emulator.init()?;
+    emulator.run()?;
 
     Ok(())
 }
