@@ -1,9 +1,9 @@
 [package]
-name = "emulator"
+name = "renderer"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
 anyhow = "1.0.100"
-
-scene = { path = "../../lib/graphics/scene" }
+pixels = "0.13.0"
+winit = "0.28.7"

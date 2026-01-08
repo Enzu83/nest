@@ -3,6 +3,7 @@ use std::fs::File;
 use std::io::Read;
 
 use anyhow::{Result, bail};
+use scene::Scene;
 
 fn main() -> Result<()> {
     let path = match args().skip(1).next() {
@@ -18,6 +19,9 @@ fn main() -> Result<()> {
     if std::str::from_utf8(&rom[..3])? != "NES" {
         bail!("ROM header is incorrect")
     };
+
+    let scene = Scene::default()?;
+    scene.run();
 
     Ok(())
 }

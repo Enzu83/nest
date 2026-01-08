@@ -3,6 +3,8 @@ resolver = "3"
 members = [
     "bin/emulator",
     "lib/cpu",
-    "lib/ppu",
-    "lib/rom"
+    "lib/graphics/ppu",
+    "lib/graphics/renderer",
+    "lib/graphics/scene",
+    "lib/rom",
 ]
