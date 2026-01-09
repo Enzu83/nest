@@ -3,7 +3,8 @@ use std::fs::File;
 use std::io::Read;
 
 use anyhow::{Result, bail};
-use scene::Scene;
+
+use graphics::renderer::Scene;
 
 fn main() -> Result<()> {
     let path = match args().skip(1).next() {

@@ -1,6 +1,6 @@
 use std::time::{Duration, Instant};
 
-use crate::color::{BLACK, Color};
+use super::color::{BLACK, Color};
 
 use anyhow::{Result, bail};
 use pixels::{Pixels, SurfaceTexture};

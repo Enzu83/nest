@@ -1,6 +1,7 @@
 use anyhow::Result;
-use renderer::{Renderer, color::Color};
 use winit::event_loop::{ControlFlow, EventLoop};
+
+use super::{window::Renderer, color::Color};
 
 pub struct Scene {
     renderer: Renderer,

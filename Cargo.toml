@@ -1,10 +1,7 @@
 [workspace]
-resolver = "3"
+resolver = "2"
 members = [
-    "bin/emulator",
-    "lib/cpu",
-    "lib/graphics/ppu",
-    "lib/graphics/renderer",
-    "lib/graphics/scene",
-    "lib/rom",
+    "bin/nest",
+    "lib/core",
+    "lib/graphics",
 ]
